@@ -1,0 +1,31 @@
+name: ci-java
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Проверка исходного кода
+        uses: actions/checkout@v2
+      
+      - name: Установка JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      
+      - name: Установка зависимостей
+        run: mvn install
+      
+      - name: Сборка проекта
+        run: mvn clean package
+      
+      - name: Запуск тестов
+        run: mvn test
