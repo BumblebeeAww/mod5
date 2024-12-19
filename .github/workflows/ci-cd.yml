@@ -17,8 +17,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        java-version: '11'
-        # distribution: 'temurin'  # Возможно, это строка была закомментирована или отсутствовала
+        java-version: '21'
+        # distribution: 'jetbrains'  # Возможно, это строка была закомментирована или отсутствовала
 
     - name: Build with Maven
       run: mvn clean insta
